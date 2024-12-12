@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rick and Morty Tablo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Rick and Morty Karakter Tablosu</h1>
+    <div class="filters">
+      <!-- Name Filter on its own line -->
+      <div class="filter-row">
+        <label for="nameFilter">Name Filter:</label>
+        <input type="text" id="nameFilter" placeholder="Filter by name" oninput="filterData()">
+      </div>
+    
+      <!-- Other filters on a separate line -->
+      <div class="filter-row">
+        <label for="statusFilter">Status Filter:</label>
+        <select id="statusFilter" onchange="filterData()">
+          <option value="">Tüm Durumlar</option>
+          <option value="alive">Yaşıyor</option>
+          <option value="dead">Ölü</option>
+          <option value="unknown">Bilinmiyor</option>
+        </select>
+    
+        <label for="speciesFilter">Species Filter:</label>
+        <select id="speciesFilter" onchange="filterData()">
+          <option value="">All</option>
+          <option value="Human">Human</option>
+          <option value="Alien">Alien</option>
+          <option value="Robot">Robot</option>
+        </select>
+    
+        <button id="applyFilters">Filtrele</button>
+      </div>
+    
+      <!-- Sorting section on its own line -->
+      <div class="filter-row">
+        <label for="sortCriteria">Sırala:</label>
+        <select id="sortCriteria">
+          <option value="id">ID</option>
+          <option value="name">name</option>
+          <option value="status">status</option>
+          <option value="species">species</option>
+          <option value="type">type</option>
+        </select>
+        <button id="sortOrderButton">Artan</button>
+      </div>
+    
+      <!-- Results per page section on the last line -->
+      <div class="filter-row">
+        <label for="pageSize">Results per page:</label>
+        <select id="pageSize" onchange="filterData()">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+      </div>
+    </div>
+    
+    
+    <table>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>status</th>
+          <th>species</th>
+          <th>type</th>
+          <th>gender</th>
+          <th>origin</th>
+          <th>location</th>
+          <th>episode</th>
+          <th>image</th>
+          <th>createdAt</th>
+        </tr>
+      </thead>
+      <tbody id="characterTable"></tbody>
+    </table>
+    <div class="pagination">
+      <button id="prevPage">Önceki</button>
+      <span id="pageInfo"></span>
+      <button id="nextPage">Sonraki</button>
+    </div>
+    <div id="characterDetail"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
